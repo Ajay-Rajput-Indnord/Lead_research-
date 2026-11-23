@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header>
+    <h1>Lead Research</h1>
+    <span id="server" class="pill">checking…</span>
+  </header>
+
+  <section>
+    <label for="company">Company</label>
+    <select id="company"><option value="">Loading…</option></select>
+    <div id="linkRow" class="row muted"></div>
+  </section>
+
+  <section id="steps" hidden>
+    <div class="checklist">
+      <div id="chkAbout">About</div>
+      <div id="chkPosts">Posts</div>
+      <div id="chkPeople">People</div>
+    </div>
+    <div class="row nav">
+      <button data-go="about">Open About</button>
+      <button data-go="posts">Open Posts</button>
+      <button data-go="people">Open People</button>
+    </div>
+    <div class="current">This tab: <b id="pageKind">–</b></div>
+    <div id="tabUrl" class="hint url"></div>
+    <button id="readBtn" class="primary" disabled>Read this page</button>
+    <p class="hint">Only the page you have open is read, and only when you click. On People, scroll to load more cards, then read again. Open a person's profile and read it for a more personal message.</p>
+  </section>
+
+  <section id="suggestBox" hidden>
+    <button id="suggestBtn" class="primary">Suggest who to connect</button>
+    <p id="strategy" class="strategy" hidden></p>
+  </section>
+
+  <section id="peopleBox" hidden>
+    <h2>People <span id="peopleCount" class="muted"></span></h2>
+    <div id="people"></div>
+  </section>
+
+  <div id="toast" hidden></div>
+  <template id="personTpl">
+    <div class="card">
+      <div class="top">
+        <div>
+          <div class="name"></div>
+          <div class="headline muted"></div>
+        </div>
+        <span class="score"></span>
+      </div>
+      <div class="reason"></div>
+      <div class="angle muted"></div>
+      <div class="row actions">
+        <button class="open">Open profile</button>
+        <button class="write primary">Write message</button>
+        <button class="skip">Skip</button>
+      </div>
+      <div class="draft" hidden>
+        <label>Connection note <span class="chars muted"></span></label>
+        <textarea class="note" rows="4"></textarea>
+        <button class="copyNote">Copy note</button>
+        <label>Follow-up after they accept</label>
+        <textarea class="followup" rows="7"></textarea>
+        <button class="copyFollow">Copy follow-up</button>
+        <input class="feedback" placeholder="What should change? (optional)">
+        <div class="row">
+          <button class="regen">Regenerate</button>
+          <button class="sent primary">I sent it</button>
+        </div>
+      </div>
+
+      <div class="emailBox">
+        <label>Email address</label>
+        <div class="row nowrap">
+          <input class="emailAddr" type="email" placeholder="name@company.com">
+          <button class="saveEmail">Save</button>
+        </div>
+        <button class="writeEmail">Write email</button>
+        <div class="emailDraft" hidden>
+          <label>Subject</label>
+          <input class="emailSubject">
+          <label>Body</label>
+          <textarea class="emailBody" rows="10"></textarea>
+          <input class="emailFeedback" placeholder="What should change? (optional)">
+          <div class="row">
+            <button class="regenEmail">Regenerate</button>
+            <button class="sendEmail primary">Send email</button>
+          </div>
+        </div>
+        <div class="emailSent muted" hidden></div>
+      </div>
+    </div>
+  </template>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

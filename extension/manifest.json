@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Lead Research Assistant",
+  "version": "1.0.0",
+  "description": "Reads the LinkedIn page you are viewing for your selected company and suggests who to connect with. You send every message yourself.",
+  "permissions": ["sidePanel", "scripting", "tabs"],
+  "host_permissions": [
+    "https://www.linkedin.com/*",
+    "http://127.0.0.1:8765/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "action": { "default_title": "Lead Research Assistant" }
+}
